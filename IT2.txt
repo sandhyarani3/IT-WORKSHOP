@@ -1,0 +1,449 @@
+cat>grepFile.txt
+Welcome to rugukt
+rgukt is in basar village
+nearby sarawathi temple
+^C
+user@sandhya:~$ grep "Welcome" grepFile.txt
+Welcome to rugukt
+user@sandhya:~$ grep-h 'temple' grepFile.txt
+grep-h: command not found
+user@sandhya:~$ grep -h 'temple' grepFile.txt
+nearby sarawathi temple
+user@sandhya:~$ grep  'temple' grepFile.txt
+nearby sarawathi temple
+user@sandhya:~$ grep -n 'Welcome' grepFile.txt
+1:Welcome to rugukt
+user@sandhya:~$ grep -v 'rgukt' grepFile.txt
+Welcome to rugukt
+nearby sarawathi temple
+user@sandhya:~$ grep -e 'village' -e 'temple' grepFile.txt
+rgukt is in basar village
+nearby sarawathi temple
+user@sandhya:~$ grep -o 'rgukt' grepFile.txt
+rgukt
+user@sandhya:~$ grep -c 'basar' grepFile.txt
+1
+user@sandhya:~$ grep -c 'Rajanna' grepFile.txt
+0
+user@sandhya:~$ grep -l
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+user@sandhya:~$ grep -l 'basa';
+^[[A^[[D
+^C
+user@sandhya:~$ grep -l 'basar'
+
+
+
+^C
+user@sandhya:~$ grep -l 'HTML';
+
+
+
+
+^C
+user@sandhya:~$ grep -l 'basar'
+^C
+user@sandhya:~$ grep -l 'basar' grepFile.txt
+grepFile.txt
+user@sandhya:~$ grep -l 'vanitha' grepFile.txt
+user@sandhya:~$ grep '^basar' grepFile.txt
+user@sandhya:~$ grep "^basar" grepFile.txt
+user@sandhya:~$ grep "^Welcome" grepFile.txt
+Welcome to rugukt
+user@sandhya:~$ grep "^rgukt" grepFile.txt
+rgukt is in basar village
+user@sandhya:~$ grep "^nearby" grepFile.txt
+nearby sarawathi temple
+user@sandhya:~$ grep "^to" grepFile.txt
+user@sandhya:~$ cat sortFile.txt
+cat: sortFile.txt: No such file or directory
+user@sandhya:~$ cat>sortFile.txt
+Rajanna
+Vanitha
+Sathavva
+Sandhyarani
+Sharanya
+Ganesh
+^C
+user@sandhya:~$ sort sortFile.txt
+Ganesh
+Rajanna
+Sandhyarani
+Sathavva
+Sharanya
+Vanitha
+user@sandhya:~$ sort -r sortFile.txt
+Vanitha
+Sharanya
+Sathavva
+Sandhyarani
+Rajanna
+Ganesh
+user@sandhya:~$ sort -o sortFile.txt
+sandhya
+sharanya
+Rajanna
+^C
+user@sandhya:~$ sort -o sortFile.txt
+^C
+user@sandhya:~$ sort -r sortFile.txt
+Vanitha
+Sharanya
+Sathavva
+Sandhyarani
+Rajanna
+Ganesh
+user@sandhya:~$ sort -M sortFile.txt
+Ganesh
+Rajanna
+Sandhyarani
+Sathavva
+Sharanya
+Vanitha
+user@sandhya:~$ cat>sortFile2.txt
+August
+September
+November
+December
+JULY
+March
+May
+June
+April
+Feburary
+^C
+user@sandhya:~$ sort -M sortFile2.txt
+Feburary
+March
+April
+May
+June
+JULY
+August
+September
+November
+December
+user@sandhya:~$ sort sortFile2.txt
+April
+August
+December
+Feburary
+JULY
+June
+March
+May
+November
+September
+user@sandhya:~$ sort -r sortFile2.txt
+September
+November
+May
+March
+June
+JULY
+Feburary
+December
+August
+April
+user@sandhya:~$ sort -n sortFile2.txt
+April
+August
+December
+Feburary
+JULY
+June
+March
+May
+November
+September
+user@sandhya:~$ cat>sortNumber.txt
+23
+34
+56
+12
+01
+9
+28
+^C
+user@sandhya:~$ sort -n sortNumber.txt
+01
+9
+12
+23
+28
+34
+56
+user@sandhya:~$ sort -r sortNumber.txt
+9
+56
+34
+28
+23
+12
+01
+user@sandhya:~$ sort -nr sortNumber.txt
+56
+34
+28
+23
+12
+9
+01
+user@sandhya:~$ sort sortF1 -o sortFile2.txt
+sort: cannot read: sortF1: No such file or directory
+user@sandhya:~$ sort sortFile2.txt -o sortF1.txt
+user@sandhya:~$ sort -c sortFile.txt
+sort: sortFile.txt:3: disorder: Sathavva
+user@sandhya:~$ sort sortFile.txt
+Ganesh
+Rajanna
+Sandhyarani
+Sathavva
+Sharanya
+Vanitha
+user@sandhya:~$ sort -c sortFile.txt
+sort: sortFile.txt:3: disorder: Sathavva
+user@sandhya:~$ sort sortFile2.txt
+April
+August
+December
+Feburary
+JULY
+June
+March
+May
+November
+September
+user@sandhya:~$ sed 's/August/AUGUST/' sortFile.txt
+Rajanna
+Vanitha
+Sathavva
+Sandhyarani
+Sharanya
+Ganesh
+user@sandhya:~$ sed 's/August/AUGUST/' sortFile2.txt
+AUGUST
+September
+November
+December
+JULY
+March
+May
+June
+April
+Feburary
+user@sandhya:~$ sed ' /June/d' sortFile2.txt
+August
+September
+November
+December
+JULY
+March
+May
+April
+Feburary
+user@sandhya:~$ sed 's/March/march/2' sortFile2.txt
+August
+September
+November
+December
+JULY
+March
+May
+June
+April
+Feburary
+user@sandhya:~$ sed 's/March/march/1' sortFile2.txt
+August
+September
+November
+December
+JULY
+march
+May
+June
+April
+Feburary
+user@sandhya:~$ cat>sed.txt
+unix/linux
+this is one of the best software
+unix and linux
+commands are used in linux
+^C
+user@sandhya:~$ sed '/best/' sed.txt
+sed: -e expression #1, char 6: missing command
+user@sandhya:~$ sed '/best/d' sed.txt
+unix/linux
+unix and linux
+commands are used in linux
+user@sandhya:~$ sed '2,3d' sed.txt
+unix/linux
+commands are used in linux
+user@sandhya:~$ sed $d sed.txt
+sed: -e expression #1, char 7: unterminated `s' command
+user@sandhya:~$ sed 's/JULY/july/g' sed.txt
+unix/linux
+this is one of the best software
+unix and linux
+commands are used in linux
+user@sandhya:~$ sed 's/one/ONE/g' sed.txt
+unix/linux
+this is ONE of the best software
+unix and linux
+commands are used in linux
+user@sandhya:~$ sed '2s/one/ONE/2g' sed.txt
+unix/linux
+this is one of the best software
+unix and linux
+commands are used in linux
+user@sandhya:~$ sed '2d' sed.txt
+unix/linux
+unix and linux
+commands are used in linux
+user@sandhya:~$ sed '/in/d' sed.txt
+this is one of the best software
+user@sandhya:~$ sed '$d' sed.txt
+unix/linux
+this is one of the best software
+unix and linux
+user@sandhya:~$ cat>awk.txt
+venky window id 2345
+mansa linux id 8765
+ravi unix id 5435
+vinay ubuntu 6754
+^C
+user@sandhya:~$ awk '{print $1}' awk.txt
+venky
+mansa
+ravi
+vinay
+user@sandhya:~$ awk '{print $1,$2}' awk.txt
+venky window
+mansa linux
+ravi unix
+vinay ubuntu
+user@sandhya:~$ awk '{print *}' awk.txt
+awk: line 1: syntax error at or near *
+user@sandhya:~$ awk '{print $*}' awk.txt
+awk: line 1: syntax error at or near *
+user@sandhya:~$ awk '{print $1,$2,$3,$4}' awk.txt
+venky window id 2345
+mansa linux id 8765
+ravi unix id 5435
+vinay ubuntu 6754 
+user@sandhya:~$ awk '{print $1,$2,$3,$4,$5}' awk.txt
+venky window id 2345 
+mansa linux id 8765 
+ravi unix id 5435 
+vinay ubuntu 6754  
+user@sandhya:~$ free -m
+              total        used        free      shared  buff/cache   available
+Mem:           7716        1155        4975         127        1585        6179
+Swap:          2047           0        2047
+user@sandhya:~$ sort -k $2 awk.txt
+sort: invalid number at field start: invalid count at start of ‘awk.txt’
+user@sandhya:~$ awk '{print $1,$2,$3,$4}' awk.txt
+venky window id 2345
+mansa linux id 8765
+ravi unix id 5435
+vinay ubuntu 6754 
+user@sandhya:~$ sort -k $1 awk.txt
+sort: invalid number at field start: invalid count at start of ‘awk.txt’
+user@sandhya:~$ sort -k  awk.txt
+sort: invalid number at field start: invalid count at start of ‘awk.txt’
+user@sandhya:~$ sort -k $1 awk.txt
+sort: invalid number at field start: invalid count at start of ‘awk.txt’
+user@sandhya:~$ sort -k '{print $1}' awk.txt
+sort: invalid number at field start: invalid count at start of ‘{print $1}’
+user@sandhya:~$ shutdown -r +5
+Shutdown scheduled for Wed 2024-03-27 15:39:13 UTC, use 'shutdown -c' to cancel.
+user@sandhya:~$ su
+Password: 
+su: Authentication failure
+user@sandhya:~$ sudo su
+[sudo] password for user: 
+root@sandhya:/home/user# -c
+-c: command not found
+root@sandhya:/home/user# shutdown -c
+root@sandhya:/home/user# ^C
+root@sandhya:/home/user# 
+root@sandhya:/home/user# awk '{print $1,$2}' awk.txt
+venky window
+mansa linux
+ravi unix
+vinay ubuntu
+root@sandhya:/home/user# cd
+root@sandhya:~# cd Home
+bash: cd: Home: No such file or directory
+root@sandhya:~# su user
+user@sandhya:/root$ cd
+user@sandhya:~$ ls -lrt
+total 120
+drwxr-xr-x  2 user user 4096 Mar 16  2022 Templates
+drwxr-xr-x  2 user user 4096 Mar 16  2022 Public
+drwx------  3 user user 4096 Dec 29  2022 snap
+drwxrwxr-x  3 user user 4096 Jan  5 11:12 org
+drwxrwxr-x  2 user user 4096 Jan  5 12:43 calculator
+drwxrwxr-x  2 user user 4096 Jan  5 17:29 pac
+drwxrwxr-x  2 user user 4096 Feb  1 06:04 pack2
+d-------w-  2 user user 4096 Feb  9 11:43 bank
+drwxrwxr-x  2 user user 4096 Mar  3 14:55 pack
+drwxrwxr-x  2 user user 4096 Mar  3 14:56 pack3
+drwxrwxr-x  2 user user 4096 Mar  3 15:26 Shapes1
+drwxr-xr-x  5 user user 4096 Mar 16 21:21 Documents
+-rw-rw-r--  1 user user  453 Mar 18 12:26 font.html
+-rw-rw-r--  1 user user  518 Mar 18 15:11 myDetails.html
+-rw-rw-r--  1 user user  594 Mar 18 16:05 Details.html
+drwxr-xr-x  3 user user 4096 Mar 19 15:02 Pictures
+drwxr-xr-x  2 user user 4096 Mar 19 15:18 Music
+drwxrwxr-x  3 user user 4096 Mar 20 14:43 java
+-rw-rw-r--  1 user user  379 Mar 20 14:49 HTML
+-rw-rw-r--  1 user user    6 Mar 20 14:51 register
+drwxr-xr-x  2 user user 4096 Mar 25 09:31 Videos
+drwxr-xr-x 11 user user 4096 Mar 26 20:07 Desktop
+drwxr-xr-x  6 user user 4096 Mar 27 10:32 Downloads
+-rw-rw-r--  1 user user   68 Mar 27 14:20 grepFile.txt
+-rw-rw-r--  1 user user   53 Mar 27 14:41 sortFile.txt
+-rw-rw-r--  1 user user   70 Mar 27 14:47 sortFile2.txt
+-rw-rw-r--  1 user user   20 Mar 27 14:50 sortNumber.txt
+-rw-rw-r--  1 user user   70 Mar 27 14:54 sortF1.txt
+-rw-rw-r--  1 user user   86 Mar 27 15:06 sed.txt
+-rw-rw-r--  1 user user   77 Mar 27 15:18 awk.txt
+user@sandhya:~$ man sort[k]
+No manual entry for sort[k]
+user@sandhya:~$ man sort
+user@sandhya:~$ man sort
+user@sandhya:~$ chmod u+x awk.txt
+user@sandhya:~$ ls -lrt
+total 120
+drwxr-xr-x  2 user user 4096 Mar 16  2022 Templates
+drwxr-xr-x  2 user user 4096 Mar 16  2022 Public
+drwx------  3 user user 4096 Dec 29  2022 snap
+drwxrwxr-x  3 user user 4096 Jan  5 11:12 org
+drwxrwxr-x  2 user user 4096 Jan  5 12:43 calculator
+drwxrwxr-x  2 user user 4096 Jan  5 17:29 pac
+drwxrwxr-x  2 user user 4096 Feb  1 06:04 pack2
+d-------w-  2 user user 4096 Feb  9 11:43 bank
+drwxrwxr-x  2 user user 4096 Mar  3 14:55 pack
+drwxrwxr-x  2 user user 4096 Mar  3 14:56 pack3
+drwxrwxr-x  2 user user 4096 Mar  3 15:26 Shapes1
+drwxr-xr-x  5 user user 4096 Mar 16 21:21 Documents
+-rw-rw-r--  1 user user  453 Mar 18 12:26 font.html
+-rw-rw-r--  1 user user  518 Mar 18 15:11 myDetails.html
+-rw-rw-r--  1 user user  594 Mar 18 16:05 Details.html
+drwxr-xr-x  3 user user 4096 Mar 19 15:02 Pictures
+drwxr-xr-x  2 user user 4096 Mar 19 15:18 Music
+drwxrwxr-x  3 user user 4096 Mar 20 14:43 java
+-rw-rw-r--  1 user user  379 Mar 20 14:49 HTML
+-rw-rw-r--  1 user user    6 Mar 20 14:51 register
+drwxr-xr-x  2 user user 4096 Mar 25 09:31 Videos
+drwxr-xr-x 11 user user 4096 Mar 26 20:07 Desktop
+drwxr-xr-x  6 user user 4096 Mar 27 10:32 Downloads
+-rw-rw-r--  1 user user   68 Mar 27 14:20 grepFile.txt
+-rw-rw-r--  1 user user   53 Mar 27 14:41 sortFile.txt
+-rw-rw-r--  1 user user   70 Mar 27 14:47 sortFile2.txt
+-rw-rw-r--  1 user user   20 Mar 27 14:50 sortNumber.txt
+-rw-rw-r--  1 user user   70 Mar 27 14:54 sortF1.txt
+-rw-rw-r--  1 user user   86 Mar 27 15:06 sed.txt
+
